@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "My AI Assistant",
+    "slug": "task-reminder-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "plugins": [
+      ["expo-notifications", { "color": "#4A90E2" }]
+    ],
+    "android": {
+      "permissions": ["SCHEDULE_EXACT_ALARM", "POST_NOTIFICATIONS"]
+    }
+  }
+}
