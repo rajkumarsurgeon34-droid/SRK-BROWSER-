@@ -1,0 +1,28 @@
+{
+  "name": "srk-film-studio",
+  "version": "0.1.0",
+  "description": "A private web app for friends: pick an SRK-Opuscar style, type a topic, and a Claude agent directs and renders the film.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "MOCK_AGENT=1 node --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajkumarsurgeon34-droid/SRK-BROWSER-.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rajkumarsurgeon34-droid/SRK-BROWSER-/issues"
+  },
+  "homepage": "https://github.com/rajkumarsurgeon34-droid/SRK-BROWSER-#readme",
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.330",
+    "express": "^5.3.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}

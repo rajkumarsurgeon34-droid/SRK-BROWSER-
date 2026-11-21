@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SRK Film Studio</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="top">
+  <a href="#/" class="brand">🎬 SRK Film Studio</a>
+  <div id="who" class="who"></div>
+</header>
+
+<main id="app">
+  <p class="muted">Loading…</p>
+</main>
+
+<footer class="foot">
+  Film styles from <a href="https://github.com/rajkumarsurgeon34-droid/SRK-Opuscar" target="_blank" rel="noopener">Lemo-Opuscar by Lemomo (LemoLab)</a>,
+  docs under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>, used here as is, for private non-commercial use.
+  Films are made by Claude, an AI by Anthropic.
+</footer>
+
+<template id="tpl-login">
+  <section class="card narrow">
+    <h1>Welcome</h1>
+    <p class="muted">A private film studio for friends. Log in with the name and password you were given.</p>
+    <form id="login" class="stack">
+      <label>Name <input name="name" autocomplete="username" required></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary">Log in</button>
+      <p class="error" id="login-error"></p>
+    </form>
+  </section>
+</template>
+
+<template id="tpl-home">
+  <section class="card">
+    <div class="row between">
+      <h1>Make a film</h1>
+      <span id="quota" class="pill"></span>
+    </div>
+    <form id="new-film" class="stack">
+      <label>What is the film about?
+        <textarea name="topic" rows="3" required minlength="10" placeholder="e.g. How monsoon rain reaches Chennai, for my nephew's school project"></textarea>
+      </label>
+
+      <div>
+        <div class="row between"><strong>Style</strong><input id="style-search" type="search" placeholder="Search styles…" aria-label="Search styles"></div>
+        <input type="hidden" name="style" required>
+        <p id="style-picked" class="muted">No style picked yet.</p>
+        <div id="styles" class="styles" role="listbox" aria-label="Styles"></div>
+      </div>
+
+      <div class="grid">
+        <label>Language
+          <select name="language">
+            <option value="en">English</option><option value="ta">Tamil</option><option value="hi">Hindi</option>
+            <option value="zh">中文</option><option value="es">Español</option><option value="fr">Français</option>
+          </select>
+        </label>
+        <label>Length
+          <select name="duration">
+            <option value="30">About 30 s</option><option value="45" selected>About 45 s</option>
+            <option value="60">About 60 s</option><option value="90">About 90 s</option>
+          </select>
+        </label>
+        <label>Shape
+          <select name="aspect"><option value="16:9">Wide 16:9</option><option value="9:16">Vertical 9:16 (phone)</option></select>
+        </label>
+        <label class="check"><input type="checkbox" name="narration"> Voice-over narration</label>
+      </div>
+
+      <label>Anything else? <span class="muted">(names, facts that must be right, mood)</span>
+        <textarea name="notes" rows="2"></textarea>
+      </label>
+      <p class="muted small" id="cost-note"></p>
+      <button class="primary" id="submit">Start the film</button>
+      <p class="error" id="new-error"></p>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Films</h2>
+    <div id="films" class="films"><p class="muted">No films yet.</p></div>
+  </section>
+</template>
+
+<template id="tpl-film">
+  <section class="card">
+    <p><a href="#/">← All films</a></p>
+    <div class="row between">
+      <h1 id="f-title">Film</h1>
+      <span id="f-status" class="pill"></span>
+    </div>
+    <p id="f-topic" class="muted"></p>
+    <div id="f-player"></div>
+    <p id="f-summary"></p>
+    <div id="f-files" class="files"></div>
+    <p id="f-error" class="error"></p>
+    <div class="row">
+      <button id="f-cancel" class="danger" hidden>Cancel</button>
+    </div>
+  </section>
+  <section class="card">
+    <div class="row between">
+      <h2>Progress</h2>
+      <label class="check small"><input type="checkbox" id="f-verbose"> Show details</label>
+    </div>
+    <ol id="f-steps" class="steps"></ol>
+    <pre id="f-log" class="log" hidden></pre>
+  </section>
+</template>
+
+<script src="/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  studio:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    volumes:
+      - films:/data
+    restart: unless-stopped
+    # Chromium needs more shared memory than Docker's 64 MB default
+    shm_size: "2gb"
+
+volumes:
+  films:
